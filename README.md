@@ -8,9 +8,10 @@ A modern and responsive portfolio showcasing my projects, skills, and experience
 - JavaScript
 - Vercel
 
+  
 ## Live Demo
-[Portfolio Link](your-vercel-link)
 
+🔗 https://your-vercel-url.vercel.app
 ## Featured Projects
 - Roomify
 - Mannat Foundation
