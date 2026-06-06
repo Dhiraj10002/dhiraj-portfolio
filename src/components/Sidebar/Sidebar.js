@@ -1,0 +1,98 @@
+import './Sidebar.scss'
+import { Link, NavLink } from 'react-router-dom'
+import name from '../../assets/images/name.png'
+import nameD from '../../assets/images/nameD.png'
+import WebD from '../../assets/images/logo_web.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faUserAstronaut, faContactCard, faComputer, faProjectDiagram} from '@fortawesome/free-solid-svg-icons'
+import {
+   faLinkedin,
+   faGithub,
+   faCodepen,
+} from '@fortawesome/free-brands-svg-icons'
+
+function Sidebar() {
+   return (
+     <div className="nav-bar">
+       <Link className="logo" to="/">
+         <img src={nameD} alt="Logo" />
+         <img className="sub-logo" src={name} alt="Dhiraj" />
+         <img className="sub-log" src={WebD} alt="Dhiraj" />
+       </Link>
+       <nav>
+         <div className="nav-item">
+           <NavLink exact="true" activeclassname="active" to="/">
+             <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
+           </NavLink>
+           <div className="horizontal-line" />
+         </div>
+         <div className="nav-item">
+           <NavLink activeclassname="active" className="about-link" to="/about">
+             <FontAwesomeIcon icon={faUserAstronaut} color="#4d4d4e" />
+           </NavLink>
+           <div className="horizontal-line" />
+         </div>
+         <div className="nav-item">
+           <NavLink activeclassname="active" className="skill-link" to="/skill">
+             <FontAwesomeIcon icon={faComputer} color="#4d4d4e" />
+           </NavLink>
+           <div className="horizontal-line" />
+         </div>
+         <div className="nav-item">
+           <NavLink
+             activeclassname="active"
+             className="project-link"
+             to="/project"
+           >
+             <FontAwesomeIcon icon={faProjectDiagram} color="#4d4d4e" />
+           </NavLink>
+           <div className="horizontal-line" />
+         </div>
+         <div className="nav-item">
+           <NavLink
+             activeclassname="active"
+             className="contact-link"
+             to="/contact"
+           >
+             <FontAwesomeIcon icon={faContactCard} color="#4d4d4e" />
+           </NavLink>
+         </div>
+       </nav>
+       <ul>
+         <li>
+           <a
+             className="svg-B"
+             href="https://www.linkedin.com/in/dhiraj-gupta-10002/"
+             target="_blank"
+             rel="noreferrer"
+           >
+             <FontAwesomeIcon icon={faLinkedin} color="#4d4d4e" />
+           </a>
+         </li>
+         <li>
+           <a
+             className="svg-B"
+             href="https://github.com/Dhiraj10002"
+             target="_blank"
+             rel="noreferrer"
+           >
+             <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
+           </a>
+         </li>
+         <li>
+           <a
+             className="svg-B"
+             href="https://leetcode.com/u/dhirajgupta1002/"
+             rel="noreferrer"
+             target="_blank"
+           >
+             <FontAwesomeIcon icon={faCodepen} color="#4d4d4e" />
+           </a>
+         </li>
+         
+       </ul>
+     </div>
+   );
+}
+
+export default Sidebar
