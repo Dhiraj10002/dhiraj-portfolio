@@ -66,7 +66,7 @@ function About() {
             <div className="rtext">My Resume</div>
             <div className="okay">
               <a
-                href="https://drive.google.com/file/d/1IvOGJ4-Lm-G2Xtc1xu92HRjE8y2YnIdn/view?usp=sharing"
+                href="https://drive.google.com/file/d/1rDVDAVY1mD5ShxnIME4ebY4Yn4rkShAh/view?usp=sharing"
                 target="Resume"
               >
                 CLICK HERE TO VIEW PDF
