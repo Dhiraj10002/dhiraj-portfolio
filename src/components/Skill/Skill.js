@@ -18,13 +18,12 @@ function Skill() {
       "C",
       "C++",
       "Go",
-      "React.js",
-      "Next.js",
+      "ReactJs",
+      "NextJs",
       "Python",
       "Git",
-      "GitHub",
-      "Express.js",
-      "Node.js",
+      "ExpressJs",
+      "NodeJs",
       "MongoDB",
       "Supabase",
       "TypeScript",
@@ -33,6 +32,9 @@ function Skill() {
       "Rest API",
       "Redis",
       "TanStack Query",
+      "Oracle Cloud (OCI)",
+      "Bash",
+      "WebSockets",
       "AWS",
       "Docker",
       "CI/CD",
@@ -129,15 +131,15 @@ function Skill() {
             </div>
             <div className="stack-group">
               <span>Backend</span>
-              <p>Node.js, Express.js, REST APIs</p>
+              <p>Node.js, Express.js, Gin, REST APIs</p>
             </div>
             <div className="stack-group">
               <span>Databases</span>
-              <p>PostgreSQL, MySQL, MongoDB, Redis</p>
+              <p>PostgreSQL, MySQL, MongoDB, Redis, WebSockets</p>
             </div>
             <div className="stack-group">
               <span>Cloud & DevOps</span>
-              <p>Docker, AWS, GitHub Actions, CI/CD</p>
+              <p>Git, Docker, AWS, CI/CD, Oracle Cloud, Bash</p>
             </div>
           </div>
 
