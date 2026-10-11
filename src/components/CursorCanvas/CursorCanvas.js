@@ -13,17 +13,28 @@ const CursorCanvas = () => {
     canvas.width = width;
     canvas.height = height;
 
-    let mouse = { x: width / 2, y: height / 2 };
+    let isRunning = false;
+    let idleFrames = 0;
+
+    const wakeUp = () => {
+      idleFrames = 0;
+      if (!isRunning && !document.hidden) {
+        isRunning = true;
+        animationFrameId = requestAnimationFrame(render);
+      }
+    };
 
     const handleMouseMove = (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
+      wakeUp();
     };
 
     const handleTouchMove = (e) => {
       if (e.touches.length > 0) {
         mouse.x = e.touches[0].clientX;
         mouse.y = e.touches[0].clientY;
+        wakeUp();
       }
     };
 
@@ -32,11 +43,24 @@ const CursorCanvas = () => {
       height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
+      wakeUp();
+    };
+
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        wakeUp();
+      } else {
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+        isRunning = false;
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("touchmove", handleTouchMove);
     window.addEventListener("resize", handleResize);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     class Point {
       constructor(x, y) {
@@ -57,11 +81,17 @@ const CursorCanvas = () => {
     const historyLength = 45; 
 
     const render = () => {
+      if (document.hidden) {
+        isRunning = false;
+        return;
+      }
+
       ctx.clearRect(0, 0, width, height);
 
       points[0].x = mouse.x;
       points[0].y = mouse.y;
 
+      let totalVelocity = 0;
       for (let i = 1; i < numPoints; i++) {
         const pt = points[i];
         const prevPt = points[i - 1];
@@ -76,6 +106,8 @@ const CursorCanvas = () => {
 
         pt.x += pt.vx;
         pt.y += pt.vy;
+
+        totalVelocity += Math.abs(pt.vx) + Math.abs(pt.vy);
       }
 
       history.push(points.map((p) => ({ x: p.x, y: p.y })));
@@ -104,15 +136,27 @@ const CursorCanvas = () => {
         ctx.stroke();
       });
 
+      if (totalVelocity < 0.05) {
+        idleFrames++;
+      } else {
+        idleFrames = 0;
+      }
+
+      if (idleFrames > historyLength) {
+        isRunning = false;
+        return;
+      }
+
       animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
+    wakeUp();
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("resize", handleResize);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

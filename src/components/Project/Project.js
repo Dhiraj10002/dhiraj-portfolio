@@ -27,35 +27,52 @@ function Project() {
   }, [])
 
 const scrollableRef = useRef(null);
-const [isScrolling, setIsScrolling] = useState(true);
+const isScrollingRef = useRef(true);
 
 useEffect(() => {
   const scrollableElement = scrollableRef.current;
+  if (!scrollableElement) return;
 
-  const scrollContent = () => {
-    if (isScrolling) {
+  let animationFrameId;
+  let lastTime = null;
+
+  const scrollContent = (timestamp) => {
+    if (lastTime === null) {
+      lastTime = timestamp;
+    }
+    const elapsed = Math.min(timestamp - lastTime, 100);
+    lastTime = timestamp;
+
+    if (isScrollingRef.current && scrollableElement) {
+      const scrollStep = (elapsed / 1000) * 50;
       if (scrollableElement.scrollTop >= scrollableElement.scrollHeight / 2) {
         scrollableElement.scrollTop = 0;
       } else {
-        scrollableElement.scrollTop += 1;
+        scrollableElement.scrollTop += scrollStep;
       }
     }
+
+    animationFrameId = requestAnimationFrame(scrollContent);
   };
 
-  const intervalId = setInterval(scrollContent, 20);
+  animationFrameId = requestAnimationFrame(scrollContent);
 
-  const handleMouseEnter = () => setIsScrolling(false);
-  const handleMouseLeave = () => setIsScrolling(true);
+  const handleMouseEnter = () => {
+    isScrollingRef.current = false;
+  };
+  const handleMouseLeave = () => {
+    isScrollingRef.current = true;
+  };
 
   scrollableElement.addEventListener("mouseenter", handleMouseEnter);
   scrollableElement.addEventListener("mouseleave", handleMouseLeave);
 
   return () => {
-    clearInterval(intervalId);
+    cancelAnimationFrame(animationFrameId);
     scrollableElement.removeEventListener("mouseenter", handleMouseEnter);
     scrollableElement.removeEventListener("mouseleave", handleMouseLeave);
   };
-}, [isScrolling]);
+}, []);
 
 
   return (

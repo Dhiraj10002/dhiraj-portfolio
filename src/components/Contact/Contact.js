@@ -33,7 +33,9 @@ function Contact() {
              .then(
           () => {
             alert("Message successfully sent!");
-            window.location.reload(false);
+            if (form.current) {
+              form.current.reset();
+            }
           },
           () => {
             alert("Failed to send the message, please try again");
@@ -60,7 +62,7 @@ function Contact() {
                companies where I can contribute to building large-scale,
                high-impact systems. If you’re working on ambitious engineering
                challenges or believe my profile aligns with your team’s goals,
-               I’d love to connect."
+               I’d love to connect.
              </p>
              <div className="contact-form">
                <form ref={form} onSubmit={sendEmail}>
