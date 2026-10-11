@@ -13,6 +13,7 @@ const CursorCanvas = () => {
     canvas.width = width;
     canvas.height = height;
 
+    let mouse = { x: width / 2, y: height / 2 };
     let isRunning = false;
     let idleFrames = 0;
 
