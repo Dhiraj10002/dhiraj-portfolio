@@ -37,7 +37,7 @@ function About() {
           </p>
 
           <p className="about-current">
-            Currently a <strong>Full-Stack Developer Intern at Zversal Pvt Ltd</strong>,
+            Currently a <strong>Full-Stack Developer at Zversal Pvt Ltd</strong>,
             working with Lakekeeper, Delta Lake, DuckDB, Apache Spark, and
             Docker to build and evaluate modern lakehouse workflows. Previously,
             I developed a real-time CXO risk dashboard using Next.js,
