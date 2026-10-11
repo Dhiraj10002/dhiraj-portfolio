@@ -155,7 +155,7 @@ function Skill() {
               </div>
               <div className="experience-item current">
                 <span className="experience-date">Apr 2026–Present</span>
-                <strong>Full-Stack Developer Intern</strong>
+                <strong>Full-Stack Developer</strong>
                 <span>Zversal Pvt Ltd</span>
               </div>
             </div>
