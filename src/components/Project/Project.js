@@ -5,6 +5,8 @@ import './Project.scss'
 import { Outlet } from 'react-router-dom'
 
 import mannat from "../../assets/project/mannat.png";
+import stockSimulator from "../../assets/project/stock-simulator.png";
+import stockSimulator1 from "../../assets/project/stock-simulator1.png";
 import imagify from "../../assets/project/imagify.png";
 import roomify from "../../assets/project/roomify.png";
 import smartbookmark from "../../assets/project/smartbookmark.png";
@@ -122,11 +124,22 @@ useEffect(() => {
               <React.Fragment key={i}>
                 <div className="magic-wall_item">
                   <a
-                    href="https://smart-bookmarks-one.vercel.app/"
+                    href="https://www.stock-simulator.in"
                     target="_blank"
                     rel="noreferrer"
+                    title="Stock Simulator - Zero Financial Risk Paper Trading Platform"
                   >
-                    <img src={smartbookmark} alt="okimage" />
+                    <img src={stockSimulator} alt="Stock Simulator - Market Trading Platform" />
+                  </a>
+                </div>
+                <div className="magic-wall_item">
+                  <a
+                    href="https://www.stock-simulator.in"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Stock Simulator - Real-time Trading Desk & Portfolio Dashboard"
+                  >
+                    <img src={stockSimulator1} alt="Stock Simulator - Trading Dashboard Desk" />
                   </a>
                 </div>
                 <div className="magic-wall_item">
@@ -134,8 +147,19 @@ useEffect(() => {
                     href="https://mannat-frontend.vercel.app/"
                     target="_blank"
                     rel="noreferrer"
+                    title="Mannat Foundation NGO Web Platform"
                   >
-                    <img src={mannat} alt="okimage" />
+                    <img src={mannat} alt="Mannat Foundation NGO" />
+                  </a>
+                </div>
+                <div className="magic-wall_item">
+                  <a
+                    href="https://smart-bookmarks-one.vercel.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Smart Bookmarks Manager"
+                  >
+                    <img src={smartbookmark} alt="Smart Bookmarks App" />
                   </a>
                 </div>
                 <div className="magic-wall_item">
@@ -143,17 +167,19 @@ useEffect(() => {
                     href="https://roomify-hotel-booking.vercel.app/"
                     target="_blank"
                     rel="noreferrer"
+                    title="Roomify Hotel Booking Application"
                   >
-                    <img src={roomify} alt="okimage" />
+                    <img src={roomify} alt="Roomify Hotel Booking" />
                   </a>
-                </div>{" "}
+                </div>
                 <div className="magic-wall_item">
                   <a
                     href="https://imagify-wagd.vercel.app/"
                     target="_blank"
                     rel="noreferrer"
+                    title="Imagify AI Generation Platform"
                   >
-                    <img src={imagify} alt="okimage" />
+                    <img src={imagify} alt="Imagify AI Web App" />
                   </a>
                 </div>
                 <div className="magic-wall_item">
@@ -161,8 +187,9 @@ useEffect(() => {
                     href="https://dhiraj-e-commerce-store.netlify.app/"
                     target="_blank"
                     rel="noreferrer"
+                    title="E-Commerce Full Stack Store"
                   >
-                    <img src={ecom} alt="okimage" />
+                    <img src={ecom} alt="E-Commerce Store" />
                   </a>
                 </div>
                 <div className="magic-wall_item">
@@ -170,8 +197,9 @@ useEffect(() => {
                     href="https://dhiraj-cars-stores.netlify.app/"
                     target="_blank"
                     rel="noreferrer"
+                    title="Cars Marketplace Web App"
                   >
-                    <img src={car} alt="okimage" />
+                    <img src={car} alt="Cars Marketplace" />
                   </a>
                 </div>
                 <div className="magic-wall_item">
@@ -179,8 +207,9 @@ useEffect(() => {
                     href="https://dhiraj-shoes-store.netlify.app/"
                     target="_blank"
                     rel="noreferrer"
+                    title="Sneakers & Shoes Store"
                   >
-                    <img src={nike} alt="okimage" />
+                    <img src={nike} alt="Sneakers & Shoes Store" />
                   </a>
                 </div>
                 <div className="magic-wall_item">
@@ -188,8 +217,9 @@ useEffect(() => {
                     href="https://dhiraj-zara-store.netlify.app/"
                     target="_blank"
                     rel="noreferrer"
+                    title="Zara Modern Fashion Store"
                   >
-                    <img src={zara} alt="okimage" />
+                    <img src={zara} alt="Zara Fashion Store" />
                   </a>
                 </div>
                 <div className="magic-wall_item">
@@ -197,8 +227,9 @@ useEffect(() => {
                     href="https://dhiraj-study-sync.netlify.app/"
                     target="_blank"
                     rel="noreferrer"
+                    title="StudySync Collaboration Platform"
                   >
-                    <img src={study} alt="okimage" />
+                    <img src={study} alt="StudySync App" />
                   </a>
                 </div>
                 <div className="magic-wall_item">
@@ -206,8 +237,9 @@ useEffect(() => {
                     href="https://dhiraj-weather-app.netlify.app/"
                     target="_blank"
                     rel="noreferrer"
+                    title="Live Weather Forecast Application"
                   >
-                    <img src={weather} alt="okimage" />
+                    <img src={weather} alt="Weather Forecast App" />
                   </a>
                 </div>
               </React.Fragment>
